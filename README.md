@@ -40,6 +40,7 @@
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/d093d59f-ee7f-45f8-a056-97ca060f19d2" />
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/7e255247-e63e-4748-91f7-b386451ff4b4" />
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/859335ae-8d5b-4e50-b89e-fce8abc2ccac" />
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/ffd71cc8-83a2-4432-9f2a-e5a8ae62adf4" />
 
 
 ## Автор
