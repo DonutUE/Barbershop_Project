@@ -26,14 +26,18 @@
 * **Tunneling:** PyNgrok (для доступу до локального сервера з інтернету)
 * **Deployment:** Google Colab Environment
 
-## Як запустити проект
+### Як запустити цей проект у Google Colab
+
+Створіть новий блокнот у Google Colab, вставте туди цей код та запустіть:
+
+```python
 import os
 from pyngrok import ngrok, conf
 import sys
 
 # 1. Клонуємо репозиторій (якщо папка вже є, пропустимо помилку)
 if not os.path.exists('Barbershop_Project'):
-    !git clone https://github.com/DonutUE/Barbershop_Project.git
+    !git clone [https://github.com/DonutUE/Barbershop_Project.git](https://github.com/DonutUE/Barbershop_Project.git)
 else:
     print("📂 Папка вже існує, пропускаємо клонування.")
 
