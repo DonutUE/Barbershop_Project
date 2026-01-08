@@ -27,7 +27,10 @@
 * **Deployment:** Google Colab Environment
 
 ### Як запустити цей проект у Google Colab
-
+   **Отримайте токен Ngrok:**
+   - Зайдіть на [dashboard.ngrok.com](https://dashboard.ngrok.com/get-started/your-authtoken).
+   - Увійдіть через Google або зареєструйтесь.
+   - Скопіюйте свій **Authtoken** (він виглядає як довгий набір букв і цифр).
 Створіть новий блокнот у Google Colab, вставте туди цей код та запустіть:
 
 ```python
