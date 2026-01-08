@@ -71,14 +71,14 @@ except Exception as e:
 
 # 6. Запуск сервера
 !python manage.py runserver 8000
-
+```
 Оскільки проект розроблено в середовищі Google Colab:
 
 1.  Вставте код вище у Google Colab.
 2.  Вставте свій токен `ngrok` у відповідну змінну в коді.
 3.  Запустіть клітинку з кодом.
 4.  Перейдіть за посиланням, яке згенерує `ngrok` (наприклад, `https://xxxx.ngrok-free.dev`).
-```
+
 ## Скріншоти
 
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/d093d59f-ee7f-45f8-a056-97ca060f19d2" />
