@@ -34,39 +34,30 @@
 Створіть новий блокнот у Google Colab, вставте туди цей код та запустіть:
 
 ```python
-import os
-from pyngrok import ngrok, conf
-import sys
+# 1. Спочатку встановлюємо бібліотеки
+!pip install -q django pyngrok
 
-# 1. Клонуємо репозиторій (якщо папка вже є, пропустимо помилку)
+import os
+import sys
+from pyngrok import ngrok, conf
+
+# 2. Клонуємо репозиторій
 if not os.path.exists('Barbershop_Project'):
     !git clone [https://github.com/DonutUE/Barbershop_Project.git](https://github.com/DonutUE/Barbershop_Project.git)
 else:
-    print("📂 Папка вже існує, пропускаємо клонування.")
+    print("📂 Папка вже існує.")
 
-# 2. Заходимо в папку
-try:
-    os.chdir('Barbershop_Project')
-except:
-    # Якщо ми вже всередині, нічого страшного
-    pass
+# 3. Заходимо в папку
+try: os.chdir('Barbershop_Project')
+except: pass
 
-# 3. Встановлюємо бібліотеки
-!pip install -q django pyngrok
-
-# 4. === ВАШ ТОКЕН (Я ВЖЕ ВСТАВИВ ЙОГО) ===
-token = "37oF8e3aJm0DsXuUVZMoqRietgs_4XyvCMiBvgaN8AreBgjQj"
+# 4. === ВСТАВТЕ ВАШ ТОКЕН НИЖЧЕ (всередині лапок) ===
+token = "ВСТАВТЕ_СЮДИ_ВАШ_ТОКЕН_З_САЙТУ_NGROK" 
 conf.get_default().auth_token = token
 
 # 5. Запускаємо ngrok
-# Спочатку вб'ємо старі процеси, щоб не було конфліктів
 !pkill -9 ngrok
-
 try:
-    # Відключаємо старі тунелі
-    ngrok.kill()
-    
-    # Запускаємо новий
     public_url = ngrok.connect(8000).public_url
     print(f"\n{'='*60}\n🌍 ВАШ САЙТ ПРАЦЮЄ ТУТ: {public_url}\n{'='*60}\n")
 except Exception as e:
