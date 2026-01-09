@@ -34,28 +34,32 @@
 Створіть новий блокнот у Google Colab, вставте туди цей код та запустіть:
 
 ```python
-# 1. Спочатку встановлюємо бібліотеки
-!pip install -q django pyngrok
-
 import os
 import sys
+import shutil
+
+# 1. Встановлюємо бібліотеки (тихо)
+!pip install -q django pyngrok
+
 from pyngrok import ngrok, conf
 
-# 2. Клонуємо репозиторій
-if not os.path.exists('Barbershop_Project'):
-    !git clone [https://github.com/DonutUE/Barbershop_Project.git](https://github.com/DonutUE/Barbershop_Project.git)
-else:
-    print("📂 Папка вже існує.")
+# 2. Очищаємо старі папки (щоб почати з чистого листа)
+if os.path.exists('/content/Barbershop_Project'):
+    shutil.rmtree('/content/Barbershop_Project')
 
-# 3. Заходимо в папку
-try: os.chdir('Barbershop_Project')
-except: pass
+# 3. Клонуємо репозиторій заново
+print("🔄 Завантаження коду з GitHub...")
+!git clone https://github.com/DonutUE/Barbershop_Project.git
 
-# 4. === ВСТАВТЕ ВАШ ТОКЕН НИЖЧЕ (всередині лапок) ===
-token = "ВСТАВТЕ_СЮДИ_ВАШ_ТОКЕН_З_САЙТУ_NGROK" 
+# 4. Переходимо в папку проєкту
+os.chdir('/content/Barbershop_Project')
+print(f"📂 Поточна папка: {os.getcwd()}")
+
+# 5. === ВАШ ТОКЕН ===
+token = "37oF8e3aJm0DsXuUVZMoqRietgs_4XyvCMiBvgaN8AreBgjQj"
 conf.get_default().auth_token = token
 
-# 5. Запускаємо ngrok
+# 6. Запускаємо ngrok
 !pkill -9 ngrok
 try:
     public_url = ngrok.connect(8000).public_url
@@ -63,7 +67,8 @@ try:
 except Exception as e:
     print(f"Помилка ngrok: {e}")
 
-# 6. Запуск сервера
+# 7. Запускаємо сервер
+print("🚀 Запуск сервера Django...")
 !python manage.py runserver 8000
 ```
 Оскільки проект розроблено в середовищі Google Colab:
